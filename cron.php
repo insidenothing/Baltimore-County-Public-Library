@@ -2,7 +2,7 @@
 mysql_connect();
 mysql_select_db('bcpl');
 
-$r=@mysql_query(" select user, pass from accounts where id = '1' ");
+$r=@mysql_query(" select user, pass, email from accounts where id = '1' ");
 $d=mysql_fetch_array($r,MYSQL_ASSOC);
 
 $loginURL = "https://catalog.bcpl.lib.md.us/Mobile/MyAccount/Logon";
