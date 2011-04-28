@@ -15,8 +15,18 @@ $curl = curl_init();
 // Set options
 curl_setopt ($curl, CURLOPT_URL, $loginURL);
 curl_setopt ($curl, CURLOPT_TIMEOUT, '5');
-curl_setopt ($curl, CURLOPT_RETURNTRANSFER, '1');
+
 curl_setopt( $curl, CURLOPT_FOLLOWLOCATION, true );
+
+
+
+curl_setopt( $curl, CURLOPT_COOKIEJAR, $cookie );
+
+    curl_setopt( $curl, CURLOPT_ENCODING, "" );
+    curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
+    curl_setopt( $curl, CURLOPT_AUTOREFERER, true );
+    curl_setopt( $curl, CURLOPT_SSL_VERIFYPEER, false );    
+
 curl_setopt ($curl, CURLOPT_POSTFIELDS, 'barcodeOrUsername='.$d['user'].'&password='.$d['pass'].'&rememberMe=true');
 
 echo "<li>attempting to login to $loginURL with $d[user]/$d[pass]</li>";
