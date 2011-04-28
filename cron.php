@@ -33,15 +33,20 @@ echo "<li>attempting to login to $loginURL with $d[user]/$d[pass]</li>";
 $buffer = curl_exec ($curl);
 
 
-curl_close ($curl);
+
 
 //if all goes well
 
 
 
-
+echo "</li>Overview Page Loaded</li>";
 echo $buffer;
 
 
+curl_setopt ($curl, CURLOPT_URL, $listURL);
+$buffer = curl_exec ($curl);
+echo "</li>Attempting to access items out vi $listURL</li>";
+echo $buffer;
 
+curl_close ($curl);
 ?>
