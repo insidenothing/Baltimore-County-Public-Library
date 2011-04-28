@@ -33,7 +33,7 @@ curl_setopt( $curl, CURLOPT_COOKIEJAR, $cookie );
 
 curl_setopt ($curl, CURLOPT_POSTFIELDS, 'barcodeOrUsername='.$d['user'].'&password='.$d['pass'].'&rememberMe=true');
 
-echo "<li>attempting to login to $loginURL with $d[user]/$d[pass]</li>";
+echo "<li>attempting to login to $loginURL</li>";
 $buffer = curl_exec ($curl);
 
 
