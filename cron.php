@@ -14,6 +14,7 @@ $listURL2 = "https://catalog.bcpl.lib.md.us/Mobile/MyAccount/ItemsOut?page=1";
 $listURL3 = "https://catalog.bcpl.lib.md.us/Mobile/MyAccount/ItemsOut?page=2";
 $listURL4 = "https://catalog.bcpl.lib.md.us/Mobile/MyAccount/ItemsOut?page=3";
 
+$email = '';
 
 $curl = curl_init();
 // Set options
@@ -45,28 +46,42 @@ $buffer = curl_exec ($curl);
 
 echo "</li>Overview Page Loaded</li>";
 echo $buffer;
-
+$email .= $buffer;
 
 curl_setopt ($curl, CURLOPT_URL, $listURL1);
 $buffer = curl_exec ($curl);
 echo "</li>Attempting to access page 1 items out vi $listURL1</li>";
 echo $buffer;
+$email .= $buffer;
 
 curl_setopt ($curl, CURLOPT_URL, $listURL2);
 $buffer = curl_exec ($curl);
 echo "</li>Attempting to access page 2 items out vi $listURL2</li>";
 echo $buffer;
+$email .= $buffer;
 
 curl_setopt ($curl, CURLOPT_URL, $listURL3);
 $buffer = curl_exec ($curl);
 echo "</li>Attempting to access page 3 items out vi $listURL3</li>";
 echo $buffer;
+$email .= $buffer;
 
 curl_setopt ($curl, CURLOPT_URL, $listURL4);
 $buffer = curl_exec ($curl);
 echo "</li>Attempting to access page 4 items out vi $listURL4</li>";
 echo $buffer;
+$email .= $buffer;
 
 
 curl_close ($curl);
+
+
+// ok test mailing it out
+$subject = "Items out for BCPL.info";
+$headers = "MIME-Version: 1.0 \n";
+$headers .= "Content-type: text/html; charset=iso-8859-1 \n";
+$headers .= "From: insidenothing@gmail.com \n";
+//$headers .= "BCc: Patrick McGuire <insidenothing@gmail.com> \n";
+mail($d[email],$subject,$email,$headers);
+
 ?>
