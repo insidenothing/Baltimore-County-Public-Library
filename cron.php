@@ -19,12 +19,16 @@ curl_setopt ($curl, CURLOPT_RETURNTRANSFER, '1');
 curl_setopt( $curl, CURLOPT_FOLLOWLOCATION, true );
 curl_setopt ($curl, CURLOPT_POSTFIELDS, 'barcodeOrUsername='.$d['user'].'&password='.$d['pass'].'&rememberMe=true');
 
+echo "<li>attempting to login to $loginURL with $d[user]/$d[pass]</li>";
 $buffer = curl_exec ($curl);
 
 
 curl_close ($curl);
 
 //if all goes well
+
+
+
 
 echo $buffer;
 
