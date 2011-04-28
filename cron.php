@@ -19,7 +19,7 @@ curl_setopt ($curl, CURLOPT_POSTFIELDS, 'barcodeOrUsername='.$d['user'].'&passwo
 $buffer = curl_exec ($curl);
 
 curl_setopt ($curl, CURLOPT_URL, $listURL);
-url_setopt ($curl, CURLOPT_TIMEOUT, '5');
+curl_setopt ($curl, CURLOPT_TIMEOUT, '5');
 curl_setopt ($curl, CURLOPT_RETURNTRANSFER, '1');
 
 $buffer2 = curl_exec ($curl);
