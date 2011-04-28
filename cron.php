@@ -7,8 +7,12 @@ $d=mysql_fetch_array($r,MYSQL_ASSOC);
 
 $loginURL = "https://catalog.bcpl.lib.md.us/Mobile/MyAccount/Logon";
 $overviewURL = "https://catalog.bcpl.lib.md.us/polaris/patronaccount/default.aspx";
-$listURL = "https://catalog.bcpl.lib.md.us/Mobile/MyAccount/ItemsOut";
 
+
+$listURL1 = "https://catalog.bcpl.lib.md.us/Mobile/MyAccount/ItemsOut";
+$listURL2 = "https://catalog.bcpl.lib.md.us/Mobile/MyAccount/ItemsOut?page=1";
+$listURL3 = "https://catalog.bcpl.lib.md.us/Mobile/MyAccount/ItemsOut?page=2";
+$listURL4 = "https://catalog.bcpl.lib.md.us/Mobile/MyAccount/ItemsOut?page=3";
 
 
 $curl = curl_init();
@@ -43,10 +47,26 @@ echo "</li>Overview Page Loaded</li>";
 echo $buffer;
 
 
-curl_setopt ($curl, CURLOPT_URL, $listURL);
+curl_setopt ($curl, CURLOPT_URL, $listURL1);
 $buffer = curl_exec ($curl);
-echo "</li>Attempting to access items out vi $listURL</li>";
+echo "</li>Attempting to access page 1 items out vi $listURL1</li>";
 echo $buffer;
+
+curl_setopt ($curl, CURLOPT_URL, $listURL2);
+$buffer = curl_exec ($curl);
+echo "</li>Attempting to access page 2 items out vi $listURL2</li>";
+echo $buffer;
+
+curl_setopt ($curl, CURLOPT_URL, $listURL3);
+$buffer = curl_exec ($curl);
+echo "</li>Attempting to access page 3 items out vi $listURL3</li>";
+echo $buffer;
+
+curl_setopt ($curl, CURLOPT_URL, $listURL4);
+$buffer = curl_exec ($curl);
+echo "</li>Attempting to access page 4 items out vi $listURL4</li>";
+echo $buffer;
+
 
 curl_close ($curl);
 ?>
