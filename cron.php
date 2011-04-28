@@ -14,7 +14,7 @@ $curl = curl_init();
 curl_setopt ($curl, CURLOPT_URL, $loginURL);
 curl_setopt ($curl, CURLOPT_TIMEOUT, '5');
 curl_setopt ($curl, CURLOPT_RETURNTRANSFER, '1');
-curl_setopt ($curl, CURLOPT_POSTFIELDS, 'barcodeOrUsername='.$d['user'].'&password='.$d['pass']);
+curl_setopt ($curl, CURLOPT_POSTFIELDS, 'barcodeOrUsername='.$d['user'].'&password='.$d['pass'].'&rememberMe=true');
 
 $buffer = curl_exec ($curl);
 
