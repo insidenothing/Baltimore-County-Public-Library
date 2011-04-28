@@ -5,7 +5,7 @@ mysql_select_db('bcpl');
 $r=@mysql_query(" select user, pass from accounts where id = '1' ");
 $d=mysql_fetch_array($r,MYSQL_ASSOC);
 
-$loginURL = "https://catalog.bcpl.lib.md.us/polaris/logon.aspx";
+$loginURL = "https://catalog.bcpl.lib.md.us/Mobile/MyAccount/Logon";
 $overviewURL = "https://catalog.bcpl.lib.md.us/polaris/patronaccount/default.aspx";
 $listURL = "https://catalog.bcpl.lib.md.us/polaris/patronaccount/itemsout.aspx";
 
