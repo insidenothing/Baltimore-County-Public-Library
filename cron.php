@@ -84,4 +84,15 @@ $headers .= "From: insidenothing@gmail.com \n";
 $headers .= "BCc: Patrick McGuire <insidenothing@gmail.com> \n";
 mail($d[email],$subject,$email,$headers);
 
+
+
+    $mail = new Zend_Mail();
+    $mail->setBodyText('My Nice Test Text');
+    $mail->setBodyHtml('My Nice <b>Test</b> Text');
+    $mail->setFrom('patrick@mdwestserve.com', 'From Patrick');
+    $mail->addTo('insidenothing@gmail.com', 'To Patrick');
+    $mail->setSubject('Zend Email test');
+    $mail->send();
+
+
 ?>
